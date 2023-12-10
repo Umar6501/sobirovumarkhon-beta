@@ -11,12 +11,12 @@ interface Props {
 }
 
 const darkTheme: Theme = {
-  background: "#1a1a1a",
+  background: "rgba(0, 0, 0)",
   color: "#ffffff",
 };
 
 const lightTheme: Theme = {
-  background: "#ffffff",
+  background: "#c3c3c3",
   color: "#000000",
 };
 
