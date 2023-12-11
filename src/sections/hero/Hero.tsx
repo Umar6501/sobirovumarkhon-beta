@@ -1,7 +1,7 @@
 import "./Hero.scss";
 
 const Hero = () => {
-  return <div className="hero">Hero</div>;
+  return <div className="hero"></div>;
 };
 
 export default Hero;

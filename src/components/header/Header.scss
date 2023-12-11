@@ -335,7 +335,17 @@ header {
             border: none;
             background: transparent;
             outline: none;
-
+            position: relative;
+            &:after {
+              content: "";
+              position: absolute;
+              // background: rgb(165, 165, 165);
+              background: transparent;
+              width: 50px;
+              height: 36.8px;
+              top: -11.6px;
+              left: -52px;
+            }
             #checkbox {
               display: none;
             }
@@ -343,56 +353,106 @@ header {
             .toggle {
               position: relative;
               width: 40px;
-              height: 40px;
+              height: 24px;
               cursor: pointer;
               display: flex;
               flex-direction: column;
               align-items: center;
               justify-content: center;
-              gap: 10px;
+              gap: 7px;
               transition-duration: 0.5s;
+              transform: scale(0.92) translateY(-5.8px);
 
+              &::before {
+                content: "";
+                position: absolute;
+                left: 0px; //75
+                z-index: -1;
+                width: 10px; //70px
+                height: 40px;
+                border-radius: 7px;
+                transition-duration: 0.3s;
+                @media (max-width: 359px) {
+                  border-top-right-radius: 0px;
+                  border-top-left-radius: 7px;
+                  border-bottom-right-radius: 0px;
+                  border-bottom-left-radius: 7px;
+                }
+              }
+              &:after {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                width: 50px;
+                height: 40px;
+                border-radius: 7px;
+                transition-duration: 0.3s;
+                @media (max-width: 359px) {
+                  border-top-right-radius: 7px;
+                  border-top-left-radius: 0px;
+                  border-bottom-right-radius: 7px;
+                  border-bottom-left-radius: 0px;
+                }
+              }
+              &:hover {
+                &:before {
+                  background: rgb(165, 165, 165);
+                  transition-duration: 0.3s;
+                  left: -74px; //75
+                  width: 70px; //70px
+                }
+                &:after {
+                  background: rgb(165, 165, 165);
+                  transition-duration: 0.3s;
+                }
+              }
               .bars {
                 width: 100%;
-                height: 4px;
-                border-radius: 4px;
+                border-radius: 19px;
+                height: 2.8px;
               }
 
               #bar1,
               #bar3 {
-                width: 70%;
+                width: 100%;
+                height: 100%;
+                transition-duration: 0.5s;
               }
 
               #bar2 {
-                transition-duration: 0.8s;
+                height: 100%;
+                transition-duration: 0.5s;
               }
             }
 
-            #checkbox:checked + .toggle {
-              .bars {
-                position: absolute;
-                transition-duration: 0.5s;
-              }
-
+            #checkbox:active + .toggle {
               #bar2 {
-                transform: scaleX(0);
-                transition-duration: 0.5s;
+                width: 70%;
+                transition-duration: 0.3s;
               }
 
               #bar1 {
-                width: 100%;
-                transform: rotate(45deg);
-                transition-duration: 0.5s;
+                width: 70%;
+                transition-duration: 0.3s;
               }
 
               #bar3 {
-                width: 100%;
-                transform: rotate(-45deg);
-                transition-duration: 0.5s;
+                width: 70%;
+                transition-duration: 0.3s;
               }
-
-              transition-duration: 0.5s;
-              transform: rotate(180deg) translateY(-4px);
+              @keyframes menuWidth {
+                0% {
+                  width: 100%;
+                }
+                50% {
+                  width: 70%;
+                }
+                100% {
+                  width: 100%;
+                }
+              }
+              // transition-duration: 0.5s;
+              // transform: rotate(180deg) translateY(-4px);
             }
           }
         }
