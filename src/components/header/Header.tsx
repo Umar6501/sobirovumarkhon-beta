@@ -131,7 +131,9 @@ const Header: React.FC<Props> = () => {
               }
             >
               <p
-                className="menu-list-text"
+                className={
+                  isDarkMode ? "menu-list-text nn1" : "menu-list-text nn2"
+                }
                 style={
                   isDarkMode
                     ? {
@@ -218,36 +220,35 @@ const Header: React.FC<Props> = () => {
                 </button>
                 {/* dark mode */}
                 <button
-                  className="links"
+                  className="settings-menu"
                   onClick={() => {
-                    setSettings(!settings);
                     setClose(!close);
                   }}
-                  style={
-                    isDarkMode
-                      ? { backgroundColor: "#505050" }
-                      : { backgroundColor: "white" }
-                  }
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width="30"
+                    height="30"
                     viewBox="0 0 24 24"
-                    style={isDarkMode ? { fill: "white" } : { fill: "black" }}
+                    style={
+                      isDarkMode
+                        ? close
+                          ? { fill: "white", transform: "rotate(90deg)" }
+                          : { fill: "white" }
+                        : close
+                        ? { fill: "black", transform: "rotate(90deg)" }
+                        : { fill: "black" }
+                    }
                   >
                     <path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.084 0 2 .916 2 2s-.916 2-2 2-2-.916-2-2 .916-2 2-2z"></path>
                     <path d="m2.845 16.136 1 1.73c.531.917 1.809 1.261 2.73.73l.529-.306A8.1 8.1 0 0 0 9 19.402V20c0 1.103.897 2 2 2h2c1.103 0 2-.897 2-2v-.598a8.132 8.132 0 0 0 1.896-1.111l.529.306c.923.53 2.198.188 2.731-.731l.999-1.729a2.001 2.001 0 0 0-.731-2.732l-.505-.292a7.718 7.718 0 0 0 0-2.224l.505-.292a2.002 2.002 0 0 0 .731-2.732l-.999-1.729c-.531-.92-1.808-1.265-2.731-.732l-.529.306A8.1 8.1 0 0 0 15 4.598V4c0-1.103-.897-2-2-2h-2c-1.103 0-2 .897-2 2v.598a8.132 8.132 0 0 0-1.896 1.111l-.529-.306c-.924-.531-2.2-.187-2.731.732l-.999 1.729a2.001 2.001 0 0 0 .731 2.732l.505.292a7.683 7.683 0 0 0 0 2.223l-.505.292a2.003 2.003 0 0 0-.731 2.733zm3.326-2.758A5.703 5.703 0 0 1 6 12c0-.462.058-.926.17-1.378a.999.999 0 0 0-.47-1.108l-1.123-.65.998-1.729 1.145.662a.997.997 0 0 0 1.188-.142 6.071 6.071 0 0 1 2.384-1.399A1 1 0 0 0 11 5.3V4h2v1.3a1 1 0 0 0 .708.956 6.083 6.083 0 0 1 2.384 1.399.999.999 0 0 0 1.188.142l1.144-.661 1 1.729-1.124.649a1 1 0 0 0-.47 1.108c.112.452.17.916.17 1.378 0 .461-.058.925-.171 1.378a1 1 0 0 0 .471 1.108l1.123.649-.998 1.729-1.145-.661a.996.996 0 0 0-1.188.142 6.071 6.071 0 0 1-2.384 1.399A1 1 0 0 0 13 18.7l.002 1.3H11v-1.3a1 1 0 0 0-.708-.956 6.083 6.083 0 0 1-2.384-1.399.992.992 0 0 0-1.188-.141l-1.144.662-1-1.729 1.124-.651a1 1 0 0 0 .471-1.108z"></path>
                   </svg>
-                  <p
-                    style={isDarkMode ? { color: "white" } : { color: "black" }}
-                  >
-                    Settings
-                  </p>
                 </button>
                 {/* settings menu */}
                 <div
-                  className={close ? " settings-menu n1" : "settings-menu n2"}
+                  className={
+                    close ? "sub-settings-menu n1" : "sub-settings-menu n2"
+                  }
                   style={
                     isDarkMode
                       ? { backgroundColor: "#505050" }
@@ -420,10 +421,17 @@ const Header: React.FC<Props> = () => {
                     style={{ transition: "all 0.9s ease" }}
                   >
                     <span
-                      className="line"
+                      className={
+                        menu ? (close ? "line line-animation" : "line") : "line"
+                      }
+                      onClick={() => setClose(false)}
                       style={
                         isDarkMode
-                          ? { backgroundColor: "white" }
+                          ? close
+                            ? { backgroundColor: "white", top: "-8px" }
+                            : { backgroundColor: "white" }
+                          : close
+                          ? { backgroundColor: "gray", top: "-7px" }
                           : { backgroundColor: "gray" }
                       }
                     ></span>
@@ -434,7 +442,9 @@ const Header: React.FC<Props> = () => {
                         viewBox="0 0 150 18"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="bb2"
+                        className={
+                          menu ? (close ? "bb2" : "bb2 bb2-anim") : "bb2"
+                        }
                       >
                         <path
                           d="M76.4116 16.9382C76.1273 16.9792 75.8387 16.9792 75.5545 16.9382L3.01435 6.46923C-0.670612 5.93742 -0.280226 0.5 3.44292 0.5L148.523 0.5C152.246 0.5 152.637 5.93743 148.952 6.46924L76.4116 16.9382Z"
@@ -456,14 +466,16 @@ const Header: React.FC<Props> = () => {
                         height="5"
                         viewBox="0 0 182 14"
                         fill="none"
-                        className="bb2"
+                        className={
+                          menu ? (close ? "bb2" : "bb2 bb2-anim") : "bb2"
+                        }
                       >
                         <path
                           d="M91.0634 13L0.185699 0.25L181.941 0.25L91.0634 13Z"
                           style={
                             isDarkMode
                               ? {
-                                  transition: "all 0.3s ease",
+                                  transition: "0.3s",
                                   fill: "#505050",
                                 }
                               : {
