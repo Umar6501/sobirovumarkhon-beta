@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inder&display=swap");
 header {
   display: flex;
   align-items: center;
@@ -395,7 +396,6 @@ header {
           transition: 0.4 ease;
           position: fixed;
           width: 50%;
-          background: rgb(124, 124, 124);
           top: 0;
           bottom: 0;
           // right: 0%;
@@ -415,34 +415,42 @@ header {
           @media (max-height: 383px) {
             padding-top: 70px;
           }
+
           //////////////////////
           .menu-list-text {
-            position: absolute;
-            top: 21.5px;
-            right: 5%;
-
             width: 90%;
+            position: absolute;
+
+            top: 19px;
+            right: 5%;
             height: 40px;
+            padding-left: 10px;
+            border-radius: 12px;
+            // //////
             display: flex;
             align-items: center;
             justify-content: start;
-            text-transform: uppercase;
-            font-weight: 700;
+            //////////
+            font-family: "Inder", sans-serif;
+            font-weight: 600;
+            font-size: 28px;
             letter-spacing: 1.7px;
-            padding-left: 10px;
-            border-radius: 12px;
+            &:after {
+              content: "";
+              width: 100%;
+              height: 140px;
+              position: absolute;
+              top: -85px;
+              left: -17px;
+              z-index: 100;
+              background: linear-gradient(
+                164deg,
+                #909090 -95.77%,
+                rgb(105 96 96 / 0%) 61.99%
+              );
+            }
           }
-          // from menu-list-text
-          .t2 {
-            transform: translateX(0px);
-            transition-duration: 0.4s;
-          }
-          // from menu-list-text
-          .t1 {
-            transition-duration: 0.4s;
 
-            transform: translateX(72px) translateY(12px);
-          }
           // menu list styles /////
           .menu-grid {
             display: grid;
@@ -469,8 +477,8 @@ header {
               cursor: pointer;
               margin-bottom: 0px;
               transition-duration: 0.8s;
-
               text-transform: uppercase;
+              box-shadow: 5px 0px 149px 0px rgba(105, 105, 105, 0.12);
               &:hover {
                 transition: 0.8s ease;
               }
@@ -480,23 +488,15 @@ header {
               }
             }
             .links1 {
-              &:after {
-                background: #000;
-              }
               &:hover {
                 transition: 0.5s ease;
                 margin-bottom: 0px;
                 color: rgba(0, 0, 0, 0.5);
-                &:after {
-                  background: rgba(0, 0, 0, 0.5);
-                }
               }
             }
             .links2 {
-              color: #000;
-              &:after {
-                background: #000;
-              }
+              color: #000000;
+
               &:hover {
                 margin-bottom: 0px;
                 color: #000;
@@ -508,17 +508,19 @@ header {
             }
             // settings-menu style /////
             .settings-menu {
-              width: 133%;
+              width: 100%;
               z-index: 100;
               height: 37%;
               background-color: #ffffff;
               position: absolute;
               right: 0;
-              left: -17%;
+              left: 0%;
               bottom: 0;
               // transform: translateY(300px);
-              border-top-right-radius: 295px;
-              border-top-left-radius: 295px;
+              border-top-right-radius: 32px;
+              border-top-left-radius: 32px;
+              box-shadow: 5px 0px 20px 0px rgba(105, 105, 105, 0.12);
+
               .dark-mode-div {
                 display: flex;
                 align-items: center;
@@ -809,12 +811,25 @@ header {
                 transform: translateX(2.5px);
                 transition-duration: 0.3s;
               }
-              .bb2 {
-                position: absolute;
-                top: 3.8%;
-                width: 100%;
+              .settings-menu-arrow {
+                .line {
+                  position: absolute;
+                  top: 6px;
+                  left: 73px;
 
-                margin: 0 auto;
+                  width: 60%;
+                  height: 3.5px;
+                  background: #fff;
+                  border-radius: 90px;
+                  margin: 0 auto;
+                }
+                .bb2 {
+                  position: absolute;
+                  top: 4.6%;
+                  width: 100%;
+
+                  margin: 0 auto;
+                }
               }
             }
             .n1 {
