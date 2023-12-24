@@ -23,7 +23,6 @@ const lightTheme: Theme = {
 const Header: React.FC<Props> = () => {
   const [isDarkMode, setDarkMode] = useState<boolean>(false);
   const [menu, setMenu] = useState<boolean>(false);
-  const [settings, setSettings] = useState<boolean>(false);
   const [close, setClose] = useState<boolean>(false);
   const [language, setLanguage] = useState<boolean>(false);
   const [language2, setLanguage2] = useState<boolean>(true);
