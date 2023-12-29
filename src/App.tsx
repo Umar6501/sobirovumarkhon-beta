@@ -11,7 +11,6 @@ function App() {
   return (
     <Router>
       <Suspense fallback={<Load />}>
-        {/* fallback={<load />} */}
         <Header />
         <Routes>
           <Route path="/" element={<Hero />} />
